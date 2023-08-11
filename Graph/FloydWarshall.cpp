@@ -48,7 +48,9 @@ void floydWarshall(vector<vector<int>> &weight, vector<vector<int>> &dist)
 
                 if (dist[i][k] < INT_MAX && dist[k][j] < INT_MAX)
                 {
-                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+                    if(dist[i][j]>dist[i][k]+dist[k][j]){
+                        dist[i][j] = dist[i][k] + dist[k][j];
+                    }
                 }
             }
         }
