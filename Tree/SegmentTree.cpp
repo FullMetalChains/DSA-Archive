@@ -1,3 +1,6 @@
+#include <vector>
+using namespace std;
+
 class SegTree {
 private:
     int n, all = 0;
