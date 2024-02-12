@@ -20,13 +20,28 @@ public:
         vector<int>pos;
         for(int i = 0;i<ztable.size();i++){
             if(ztable[i] >= pattern.size()){
-                if(i - pattern.size() >= 0 && i - pattern.size() < pattern.size()){
+                if(i - pattern.size() >= 0 && i - pattern.size() < text.size() - pattern.size() + 1){
                     pos.push_back(i - pattern.size());
                 }
             }
         }
         return pos;
     }
+
+    int count(){
+        constructTable();
+        int ans = 0;
+        for(int i = 0;i<ztable.size();i++){
+            if(ztable[i] >= pattern.size()){
+                if(i - pattern.size() >= 0 && i - pattern.size() < text.size() - pattern.size() + 1){
+                    ans++;
+                }
+            }
+        }
+        return ans;
+    }
+
+
 
     void constructTable(){
         string patternText = pattern + text;
